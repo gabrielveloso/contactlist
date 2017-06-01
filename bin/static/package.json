@@ -1,0 +1,13 @@
+{
+  "name": "static",
+  "version": "1.0.0",
+  "description": "app contact list",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "gabriel azuirson",
+  "license": "ISC",
+  "dependencies": {
+  }
+}
