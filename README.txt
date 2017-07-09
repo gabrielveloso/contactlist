@@ -15,13 +15,25 @@
 	{
 	"name":"teste",
 	"phoneHome": ["54564646"]
-}
+    }
+    
+    
+    
 
 	- http://localhost:8080/usuarios - RETURN A LIST OF USERS
 	json body:
 	{	
 		"name": "JACK",
 		"age": 21
+	}	
+	
+	or with list(first add one contact
+    {	
+		"name": "JACK2",
+		"age": 21,
+		"list": [
+			"http://localhost:9001/contatos/1"
+		]
 	}
 
 #### CONTROLER

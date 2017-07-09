@@ -1,0 +1,20 @@
+<html>
+<body ng-controller="testeCtrl">
+<h2>{{nova}}</h2>
+
+
+<form role="form" ng-submit="login(credentials)">
+	<div class="form-group">
+		<label for="username">Username:</label> 
+		<input type="text"  id="username" name="username" ng-model="credentials.username"/>
+	</div>
+	<div >
+		<label for="password">Password:</label>
+		<input type="password"  id="password" name="password" ng-model="credentials.password"/>
+	</div>
+	<button type="submit">Submit</button>
+</form>
+
+</html>
+
+</body>

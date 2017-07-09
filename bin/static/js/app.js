@@ -10,9 +10,9 @@ angular.module('app', ["ngRoute"])
 .controller("testeCtrl", function($scope, $http) {
   $scope.lista = "gabriel";
   
-  $scope.nova = "outra";
+  $scope.nova = "PÁGINA LOGIN";
   
-  	$http.get('usuarios').then(
+  $http.get('usuarios').then(
 			function successCallback(response) {
 				console.log(response.data);
 			},
@@ -20,4 +20,30 @@ angular.module('app', ["ngRoute"])
 				
 			}
 	);
+  
+  $scope.credentials = {};
+	$scope.login = function(credentials) {
+		var headers = credentials ? {authorization : "Basic "
+			+ btoa(credentials.username + ":" + credentials.password)
+		} : {};
+
+		$http.get("logar", {headers : headers}).then(function(response) {
+			if (response.data.authenticated) {
+				$rootScope.authenticated = true;
+				console.log("Login OK");
+				$scope.errorMessage = false;
+				$location.path("/logado");
+			} else {
+				$location.path("/");
+				$rootScope.authenticated = false;
+				console.log("Login Error");
+				$scope.errorMessage = true;
+			} 
+		},  function errorCallback(response) {
+			$rootScope.authenticated = false;
+			console.log("Login Error Callback");
+			$scope.errorMessage = true;
+		});
+
+	};
 });
